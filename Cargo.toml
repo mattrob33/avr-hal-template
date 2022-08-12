@@ -19,24 +19,7 @@ embedded-hal = "0.2.3"
 [dependencies.arduino-hal]
 git = "https://github.com/rahix/avr-hal"
 rev = "1aacefb335517f85d0de858231e11055d9768cdf"
-{% case board -%}
-  {%- when "Adafruit Trinket" -%}
-    features = ["trinket"]
-  {%- when "Adafruit Trinket Pro" -%}
-    features = ["trinket-pro"]
-  {%- when "Arduino Leonardo" -%}
-    features = ["arduino-leonardo"]
-  {%- when "Arduino Mega 2560" -%}
-    features = ["arduino-mega2560"]
-  {%- when "Arduino Nano" -%}
-    features = ["arduino-nano"]
-  {%- when "Arduino Uno" -%}
-    features = ["arduino-uno"]
-  {%- when "SparkFun ProMicro" -%}
-    features = ["sparkfun-promicro"]
-  {%- when "Nano168" -%}
-    features = ["nano168"]
-{%- endcase %}
+features = ["arduino-uno"]
 
 # Configure the build for minimal size - AVRs have very little program memory
 [profile.dev]
@@ -50,6 +33,3 @@ codegen-units = 1
 debug = true
 lto = true
 opt-level = "s"
-{%- comment %}
-# vim: ft=toml.jinja2
-{% endcomment %}
